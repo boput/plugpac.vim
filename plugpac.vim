@@ -113,7 +113,7 @@ export def End()
 enddef
 
 export def Add(repo: string, opts: dict<any> = {})
-  const name = substitute(repo, '^.*/', '', '')
+  const name = get(opts, 'name', substitute(repo, '^.*/', '', ''))
   const default_type = get(g:, 'plugpac_default_type', 'start')
   var type = get(opts, 'type', default_type)
   if opts->has_key('delay')
